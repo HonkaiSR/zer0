@@ -16,7 +16,7 @@ body {
 }
 
 .content {
-    max-width: 670px; /* Set max width to 670px for PC */
+    max-width: 700px; /* Set max width to 670px for PC */
     padding: 20px;
     box-sizing: border-box;
     margin: 0 auto; /* Center content horizontally */
