@@ -77,6 +77,10 @@ p {
     font-size: 1.2em;
 }
 
+span.pingbi {
+    display: none;
+}
+
 footer {
     margin-top: 40px;
     text-align: left;
