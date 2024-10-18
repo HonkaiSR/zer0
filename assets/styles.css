@@ -16,7 +16,7 @@ body {
 }
 
 .content {
-    max-width: 670px; /* Set max width to 670px for PC */
+    width: 670px; /* Set max width to 670px for PC */
     padding: 20px;
     box-sizing: border-box;
     margin: 0 auto; /* Center content horizontally */
@@ -35,6 +35,17 @@ body {
     text-decoration: underline;
     text-decoration-color: #3f3f3f;
     text-decoration-thickness: 2px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 header {
@@ -116,16 +127,16 @@ footer a:hover {
         padding: 10px;
     }
     nav ul {
-        flex-direction: column; /* Stack nav items vertically on small screens */
+        flex-direction: row; /* Stack nav items vertically on small screens */
     }
     nav li {
-        margin-right: 0;
+        margin-right: 15px;
     }
     footer ul {
-        flex-direction: column; /* Stack footer links vertically on small screens */
+        flex-direction: row; /* Stack footer links vertically on small screens */
     }
     footer li {
-        margin-right: 0;
+        margin-right: 15px;
     }
 }
 
