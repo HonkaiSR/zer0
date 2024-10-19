@@ -84,6 +84,12 @@ h1 {
     color: #ffffff;
 }
 
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
 p {
     font-size: 1.2em;
 }
