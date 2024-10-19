@@ -17,7 +17,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Roboto&family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
     <div class="content">
@@ -41,12 +40,13 @@
         <footer>
             <hr style="border: 1px solid #3f3f3f;">
             <nav>
-                <ul>
-                    <li><a href="mailto:&#105;&#110;&#102;&#111;&#064;&#106;&#117;&#110;&#104;&#097;&#111;&#102;&#097;&#110;&#103;&#046;&#099;&#111;&#109;" title="联系邮箱 Email"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i><span class="sr-only">我的 Email</span></a></li>
-                    <li><a href="https://www.youtube.com/@JunhaoFANG" target="_blank" title="我的 YouTube 频道"><i class="fa-brands fa-youtube fa-lg" aria-hidden="true"></i><span class="sr-only">我的 YouTube</span></a></li>
-                    <li><a href="https://space.bilibili.com/475961865" target="_blank" title="我的 Bilibili 主页"><i class="fa-brands fa-bilibili fa-lg" aria-hidden="true"></i><span class="sr-only">我的 Bilibili</span></a></li>
-                    <li><a href="https://x.com/junhaofang_com" target="_blank" title="我的 X/@junhaofang_com"><i class="fa-brands fa-x-twitter fa-lg" aria-hidden="true"></i><span class="sr-only">我的 X</span></a></li>
-                </ul>
+                <p><small>&copy; <span id="current-year"></span> Junhao FANG</small></p>
+                <script>
+                    // Get the current year
+                    const currentYear = new Date().getFullYear();
+                    // Set the current year in the span
+                    document.getElementById('current-year').textContent = currentYear;
+                </script>
             </nav>
         </footer>
     </div>
