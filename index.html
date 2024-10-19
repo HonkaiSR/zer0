@@ -17,7 +17,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Roboto&family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
     <div class="content">
@@ -38,7 +37,7 @@
                 <p>» <a href="https://www.youtube.com/playlist?list=PLAXVfXtWydooXLERYFKx9ydUr-Zlw_X99" target="_blank>" title="前往 YouTube 观看">《Notion 教学系列》</a> - <a href="https://space.bilibili.com/475961865/lists/4426" target="_blank>" title="前往 Bilibili 观看"><small>〔Bilibili〕</small></a></p>
                 <p>» <a href="https://www.youtube.com/playlist?list=PLAXVfXtWydoqF19x_ta6r1C2QOVj9D-m9" target="_blank" title="前往 YouTube 观看">《Obsidian 教学系列》</a> - <a href="https://space.bilibili.com/475961865/lists/4436" target="_blank" title="前往 Bilibili 观看"><small>〔Bilibili〕</small></a></p>
                 <br>
-                <h2>商务合作 Business inquiries</h2>
+                <h2>商务合作 Business Inquiries</h2>
                 <p><a href="mailto:&#105;&#110;&#102;&#111;&#064;&#106;&#117;&#110;&#104;&#097;&#111;&#102;&#097;&#110;&#103;&#046;&#099;&#111;&#109;">&#105;<span class="pingbi" aria-hidden="true">celand@</span>&#110;&#102;&#111;<span class="pingbi" aria-hidden="true">ffer</span>&#064;<span class="pingbi" aria-hidden="true">Home</span>&#106;&#117;&#110;&#104;&#097;<span class="pingbi" aria-hidden="true">body@</span>&#111;&#102;&#097;&#110;&#103;&#046;&#099;<span class="pingbi" aria-hidden="true">ech</span>&#111;&#109;</a><small>（请尽可能使用公司邮箱）</small></p>
                 <p><small>语言/Language: 🇨🇳🇰🇷🇬🇧</small></p>
                 <br>
@@ -52,12 +51,13 @@
         <footer>
             <hr style="border: 1px solid #3f3f3f;">
             <nav>
-                <ul>
-                    <li><a href="mailto:&#105;&#110;&#102;&#111;&#064;&#106;&#117;&#110;&#104;&#097;&#111;&#102;&#097;&#110;&#103;&#046;&#099;&#111;&#109;" title="联系邮箱 Email"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i><span class="sr-only">我的 Email</span></a></li>
-                    <li><a href="https://www.youtube.com/@JunhaoFANG" target="_blank" title="我的 YouTube 频道"><i class="fa-brands fa-youtube fa-lg" aria-hidden="true"></i><span class="sr-only">我的 YouTube</span></a></li>
-                    <li><a href="https://space.bilibili.com/475961865" target="_blank" title="我的 Bilibili 主页"><i class="fa-brands fa-bilibili fa-lg" aria-hidden="true"></i><span class="sr-only">我的 Bilibili</span></a></li>
-                    <li><a href="https://x.com/junhaofang_com" target="_blank" title="我的 X/@junhaofang_com"><i class="fa-brands fa-x-twitter fa-lg" aria-hidden="true"></i><span class="sr-only">我的 X</span></a></li>
-                </ul>
+                <p><small>&copy; <span id="current-year"></span> Junhao FANG</small></p>
+                <script>
+                    // Get the current year
+                    const currentYear = new Date().getFullYear();
+                    // Set the current year in the span
+                    document.getElementById('current-year').textContent = currentYear;
+                </script>
             </nav>
         </footer>
     </div>
