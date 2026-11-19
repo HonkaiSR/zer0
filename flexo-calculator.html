@@ -50,6 +50,12 @@ h1{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:.3px;margin:20p
   -webkit-appearance:none;appearance:none;border-radius:0;
 }
 .row input::placeholder{color:var(--secondary);opacity:.6}
+
+.clr{flex:0 0 auto;display:none;align-items:center;justify-content:center;width:30px;height:36px;margin-left:2px;
+  border:0;background:transparent;color:var(--secondary);padding:0}
+.clr.show{display:flex}
+.clr svg{width:18px;height:18px;opacity:.75}
+.clr:active svg{opacity:1}
 .hidden{display:none!important}
 .footer{font-size:13px;color:var(--secondary);margin:8px 16px 0}
 .sec{margin-top:24px}
@@ -72,6 +78,9 @@ h1{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:.3px;margin:20p
 }
 .btn:active{opacity:.7;transform:scale(.99)}
 .btn:disabled{background:var(--fill);color:var(--secondary)}
+.btn.tint{background:var(--fill);color:var(--blue);margin-top:24px}
+.btn.tint:disabled{color:var(--secondary);opacity:.6}
+.btn.tint+.sec{margin-top:16px}
 
 .hhead{display:flex;justify-content:space-between;align-items:baseline;margin:28px 16px 8px}
 .hhead h2{margin:0;font-size:13px;font-weight:400;color:var(--secondary)}
@@ -138,6 +147,8 @@ h1{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:.3px;margin:20p
     <div class="footer">用米数加上额外米数，算出需要几卷原料。</div>
   </div>
 
+  <button class="btn tint" id="clearAll" disabled>清空全部输入框</button>
+
   <div class="group sec result">
     <div class="cap" id="cap">米数</div>
     <div class="num" id="num">—</div>
@@ -200,6 +211,7 @@ h1{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:.3px;margin:20p
 
   /* ---------- 计算 ---------- */
   function calc(){
+    syncClr();
     var t = num($("teeth").value), p = num($("panels").value);
     var a = mode==="m" ? num($("qty").value) : num($("meters").value);
     var exRaw = $("extra").value.trim();
@@ -338,6 +350,31 @@ h1{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:.3px;margin:20p
   $("cancelBtn").addEventListener("click",closeSheet);
   $("sheetBg").addEventListener("click",function(e){ if(e.target===this) closeSheet(); });
   $("confirmBtn").addEventListener("click",function(){ var f = pending; closeSheet(); if(f) f(); });
+
+
+  /* ---------- 输入框一键清除 ---------- */
+  var INPUTS = ["pname","teeth","panels","qty","meters","extra"];
+  var XSVG = '<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M6.5 6.5l7 7M13.5 6.5l-7 7" stroke="var(--card)" stroke-width="1.8" stroke-linecap="round"/></svg>';
+  function syncClr(){
+    $("clearAll").disabled = !INPUTS.some(function(id){return $(id).value.length>0});
+    INPUTS.forEach(function(id){
+      var b = $(id).nextElementSibling;
+      if(b && b.classList.contains("clr")) b.classList.toggle("show", $(id).value.length>0);
+    });
+  }
+  INPUTS.forEach(function(id){
+    var inp = $(id), b = document.createElement("button");
+    b.type = "button"; b.className = "clr"; b.setAttribute("aria-label","清除"); b.innerHTML = XSVG;
+    b.addEventListener("pointerdown",function(e){ e.preventDefault(); });
+    b.addEventListener("click",function(){ inp.value = ""; calc(); inp.focus(); });
+    inp.parentNode.insertBefore(b, inp.nextSibling);
+  });
+
+  $("clearAll").addEventListener("click",function(){
+    INPUTS.forEach(function(id){ $(id).value = ""; });
+    if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
+    calc(); toast("已清空输入");
+  });
 
   render(); setMode("m");
 })();
